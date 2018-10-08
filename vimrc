@@ -65,6 +65,7 @@ augroup END
 
 " NERDTree settings
 augroup NERDTree
+    autocmd vimenter * NERDTree
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 augroup END
 
@@ -73,12 +74,6 @@ map <Leader>t :NERDTreeToggle<CR>
 " mappings for switching buffers
 map <Leader>n :bn<CR>
 map <Leader>p :bp<CR>
-
-" with great thanks to robgough's unamed co-worker
-map <Left> :echo 'you caveman'<CR>
-map <Right> :echo 'insert insult'<CR>
-map <Up> :echo 'why'<CR>
-map <Down> :echo 'use hjkl like a civilized person'<CR>
 
 set fillchars=""
 
