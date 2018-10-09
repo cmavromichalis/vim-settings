@@ -20,6 +20,9 @@ call plug#end()
 " vim-airline settings
 let g:airline_theme='molokai'
 
+" vim-go error suppression
+let g:go_version_warning = 0
+
 " vim-gutentags settings
 let g:gutentags_dont_load = 1
 set statusline+=%{gutentags#statusline()}

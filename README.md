@@ -1,5 +1,5 @@
 # vim-settings
-A minimal vimrc, set of plugins, with minimal non-vim dependencies.
+My settings for working in go; forked from Sam
 
 ## Installation
 You must have at least vim 8, curl, and git on your system to build.
