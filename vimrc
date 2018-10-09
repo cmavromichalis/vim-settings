@@ -12,6 +12,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'tomasr/molokai'
 Plug 'scrooloose/nerdtree'
+Plug 'fatih/vim-go'
 
 " initialize plugin system
 call plug#end()
