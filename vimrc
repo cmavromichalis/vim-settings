@@ -25,7 +25,6 @@ call plug#end()
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:go_list_type='quickfix'
 let g:syntastic_go_checkers = ['go', 'gofmt', 'golint', 'govet']
 let g:syntastic_ignore_files = ['\.s$']
 let g:syntastic_always_populate_loc_list = 1
@@ -39,6 +38,11 @@ let g:go_highlight_build_constraints = 1
 let g:go_auto_type_info = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_fmt_command = 'goimports'
+let g:go_list_type = "quickfix"
+
+" vim-go error suppression
+let g:go_version_warning = 0
+let g:go_fmt_fail_silently = 1
 
 " tagbar settings
 autocmd VimEnter * nested :TagbarOpen
@@ -50,9 +54,6 @@ let g:airline_powerline_fonts = 1
 " Syntax highlighting
 syntax enable
 " colorscheme molokai
-
-" vim-go error suppression
-let g:go_version_warning = 0
 
 " vim-gutentags settings
 let g:gutentags_dont_load = 1
