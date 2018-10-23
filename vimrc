@@ -10,15 +10,26 @@ Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'dir': '~/.vim/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
-Plug 'tomasr/molokai'
 Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go'
+Plug 'fatih/molokai'
+Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'https://github.com/majutsushi/tagbar.git'
+
 
 " initialize plugin system
 call plug#end()
 
+" tagbar settings
+autocmd VimEnter * nested :TagbarOpen
+
 " vim-airline settings
-let g:airline_theme='molokai'
+let g:airline_theme='badwolf'
+let g:airline_powerline_fonts = 1
+
+" Syntax highlighting
+syntax enable
+" colorscheme molokai
 
 " vim-go error suppression
 let g:go_version_warning = 0
@@ -92,5 +103,5 @@ augroup END
 
 set t_Co=256
 silent! colo molokai
-set background=dark
+set background=light
 
