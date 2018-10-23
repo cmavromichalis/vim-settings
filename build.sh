@@ -25,6 +25,14 @@ cp vimrc $VIMRC
 echo "Installing vim-plug..."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# apt-get install c-tags
+# go get -u -v golang.org/x/tools/cmd/guru
+# go get github.com/axw/gocov/gocov
+# go get -u github.com/jstemmer/gotags
+# go get golang.org/x/tools/cmd/goimports
+# go get -u golang.org/x/lint/golint
+# go get -u github.com/kisielk/errcheck
+
 # run vim to install plugins
 echo "Installing plugins..."
 vim +PlugInstall +qall &> /dev/null

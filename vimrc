@@ -15,10 +15,30 @@ Plug 'fatih/vim-go'
 Plug 'fatih/molokai'
 Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'https://github.com/majutsushi/tagbar.git'
+Plug 'https://github.com/vim-syntastic/syntastic.git'
 
 
 " initialize plugin system
 call plug#end()
+
+" Syntastic plugin
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:go_list_type='quickfix'
+let g:syntastic_go_checkers = ['go', 'gofmt', 'golint', 'govet']
+let g:syntastic_ignore_files = ['\.s$']
+let g:syntastic_always_populate_loc_list = 1
+
+" Go-vim plugin
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_auto_type_info = 0
+let g:go_highlight_trailing_whitespace_error = 0
+let g:go_fmt_command = 'goimports'
 
 " tagbar settings
 autocmd VimEnter * nested :TagbarOpen
