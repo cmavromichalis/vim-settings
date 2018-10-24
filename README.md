@@ -10,14 +10,13 @@ My settings for working in go; forked from Sam
 * go 1.9 - For golint(golang.org/x/lint/golint)
 * c-tags - For tagbar(github.com/majutsushi/tagbar)
 * The following:
-
-⋅⋅⋅ apt-get install c-tags
-⋅⋅⋅ go get -u -v golang.org/x/tools/cmd/guru
-⋅⋅⋅ go get github.com/axw/gocov/gocov
-⋅⋅⋅ go get -u github.com/jstemmer/gotags
-⋅⋅⋅ go get golang.org/x/tools/cmd/goimports
-⋅⋅⋅ go get -u golang.org/x/lint/golint
-⋅⋅⋅ go get -u github.com/kisielk/errcheck
+  * apt-get install c-tags
+  * go get -u -v golang.org/x/tools/cmd/guru
+  * go get github.com/axw/gocov/gocov
+  * go get -u github.com/jstemmer/gotags
+  * go get golang.org/x/tools/cmd/goimports
+  * go get -u golang.org/x/lint/golint
+  * go get -u github.com/kisielk/errcheck
 
 Clone the repository:
 `$ git clone https://github.com/cmavromichalis/vim-settings.git`
