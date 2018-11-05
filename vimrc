@@ -13,11 +13,9 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go'
 Plug 'fatih/molokai'
-Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+" Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/vim-syntastic/syntastic.git'
-
-
 " initialize plugin system
 call plug#end()
 
@@ -41,11 +39,38 @@ let g:go_fmt_command = 'goimports'
 let g:go_list_type = "quickfix"
 
 " vim-go error suppression
-let g:go_version_warning = 0
-let g:go_fmt_fail_silently = 1
+let g:go_fmt_fail_silently = 0
 
 " tagbar settings
 autocmd VimEnter * nested :TagbarOpen
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
+
 
 " vim-airline settings
 let g:airline_theme='badwolf'
@@ -83,13 +108,16 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+" Enable line numbers
 set number
+" Wrap lines at 80 characters
 set textwidth=80
+" Set tabs to 4 spaces
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab smarttab
-
+" Turn on color syntax highlighting
 syntax on
 filetype plugin indent on
 
