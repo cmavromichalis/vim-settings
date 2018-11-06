@@ -6,14 +6,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'dir': '~/.vim/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go'
 Plug 'fatih/molokai'
-" Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/vim-syntastic/syntastic.git'
 " initialize plugin system
@@ -36,41 +36,13 @@ let g:go_highlight_build_constraints = 1
 let g:go_auto_type_info = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_fmt_command = 'goimports'
-let g:go_list_type = "quickfix"
+let g:go_list_type = 'quickfix'
 
 " vim-go error suppression
 let g:go_fmt_fail_silently = 0
 
 " tagbar settings
 autocmd VimEnter * nested :TagbarOpen
-let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-\ }
-
 
 " vim-airline settings
 let g:airline_theme='badwolf'
@@ -78,11 +50,10 @@ let g:airline_powerline_fonts = 1
 
 " Syntax highlighting
 syntax enable
-" colorscheme molokai
 
 " vim-gutentags settings
-let g:gutentags_dont_load = 1
-set statusline+=%{gutentags#statusline()}
+"let g:gutentags_dont_load = 1
+"set statusline+=%{gutentags#statusline()}
 
 " loclist settings
 map <Leader>c :lclose<CR>
@@ -96,7 +67,7 @@ nmap <Leader>b :Buffers<CR>
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
+ \ 'hl':      ['fg', 'Comment'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
   \ 'hl+':     ['fg', 'Statement'],
@@ -152,5 +123,4 @@ augroup END
 
 set t_Co=256
 silent! colo molokai
-set background=light
 
