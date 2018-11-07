@@ -6,7 +6,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
-"Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot' https://github.com/majutsushi/tagbar/issues/509
 Plug 'junegunn/fzf', { 'dir': '~/.vim/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
@@ -51,10 +51,6 @@ let g:airline_powerline_fonts = 1
 " Syntax highlighting
 syntax enable
 
-" vim-gutentags settings
-"let g:gutentags_dont_load = 1
-"set statusline+=%{gutentags#statusline()}
-
 " loclist settings
 map <Leader>c :lclose<CR>
 map <Leader>o :lopen<CR>
@@ -67,7 +63,7 @@ nmap <Leader>b :Buffers<CR>
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
- \ 'hl':      ['fg', 'Comment'],
+  \ 'hl':      ['fg', 'Comment'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
   \ 'hl+':     ['fg', 'Statement'],
