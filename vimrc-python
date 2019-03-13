@@ -1,0 +1,132 @@
+" set up vim-plug
+call plug#begin('~/.vim/plugged')
+
+" filesystem
+Plug 'scrooloose/nerdtree'
+
+" navigation
+"  command-line fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.vim/fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+
+" vim-sensible helps improve usability of vim
+Plug 'tpope/vim-sensible'
+
+" vim-fugitive is a git wrapper; maybe the 'best git wrapper of all time'
+Plug 'tpope/vim-fugitive'
+
+" Lean & mean status/tabline for vim that's light as air.
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" ale: Code linter
+Plug 'w0rp/ale'
+
+" molokai pretty coloe scheme for vim
+Plug 'fatih/molokai'
+
+" tagbar provides an easy way to browse the tags of the current file and get an overview of its structure
+Plug 'https://github.com/majutsushi/tagbar.git'
+" syntastic plugin checker
+Plug 'https://github.com/vim-syntastic/syntastic.git'
+
+"python sytax checker
+Plug 'nvie/vim-flake8'
+Plug 'vim-scripts/Pydiction'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'scrooloose/syntastic'
+
+" initialize plugin system
+call plug#end()
+
+" Syntastic plugin
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" tagbar settings
+autocmd VimEnter * nested :TagbarOpen
+
+" vim-airline settings
+"  Show buffers in the top of the screen
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_theme='badwolf'
+
+" Syntax highlighting
+syntax enable
+
+" loclist settings
+map <Leader>c :lclose<CR>
+map <Leader>o :lopen<CR>
+
+" fzf settings
+nmap <Leader>f :Files<CR>
+nmap <Leader>b :Buffers<CR>
+
+" customize fzf colors to match color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Enable line numbers
+set number
+" Wrap lines at 80 characters
+set textwidth=80
+" Set tabs to 4 spaces
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab smarttab
+
+" Turn on color syntax highlighting
+syntax on
+filetype plugin indent on
+
+" kill trailing whitespace
+augroup TrailingWhitespace
+    autocmd FileType c,make,markdown,sh,vim
+    \ autocmd BufWritePre <buffer> %s/\s\+$//e
+augroup END
+
+" NERDTree settings
+augroup NERDTree
+    autocmd vimenter * NERDTree | wincmd p
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+augroup END
+
+map <Leader>t :NERDTreeToggle<CR>
+
+" mappings for switching buffers
+map <Leader>n :bn<CR>
+map <Leader>p :bp<CR>
+
+set fillchars=""
+
+" color scheme overrides
+augroup ColorSchemeOverrides
+    autocmd ColorScheme *
+    \   highlight Statement     cterm=bold
+    \ | highlight Keyword       cterm=bold
+    \ | highlight Exception     cterm=bold
+    \ | highlight MatchParen    cterm=bold
+augroup END
+
+set t_Co=256
+silent! colo molokai
